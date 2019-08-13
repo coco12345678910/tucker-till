@@ -2,6 +2,11 @@
   "name": "im-so-fucking-done",
   "version": "0.1.0",
   "private": true,
+  "description": "Till and data system for chicken time",
+  "author": "TUCKER, JOSH",
+  "build": { "appId": "dev.calibrateit" },
+  "main": "public/electron.js",
+  "homepage": "./",
   "dependencies": {
     "@types/jest": "24.0.17",
     "@types/node": "12.7.1",
@@ -13,10 +18,14 @@
     "typescript": "3.5.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "react-start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "react-test": "react-scripts test --env=jsdom",
+    "react-eject": "react-scripts eject",
+    "electron-build": "electron-builder",
+    "release": "yarn react-build && electron-builder --publish=always",
+    "build": "yarn react-build && yarn electron-build",
+    "start": "concurrently \" yarn react-start\" \"electron . wait-on\""
   },
   "eslintConfig": {
     "extends": "react-app"
