@@ -1,6 +1,6 @@
 const electron = require("electron");
 const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
+const { BrowserWindow, ipcMain } = electron;
 const path = require("path");
 const isDev = require("electron-is-dev");
 
@@ -8,8 +8,10 @@ let mainWindow;
 
 function createWindow() {
     mainWindow = new BrowserWindow({ 
-        width: 900, 
-        height: 680 
+        fullscreen: true,
+        webPreferences: {
+            nodeIntegration: true
+        }
     });
     mainWindow.loadURL(
         isDev
@@ -33,4 +35,10 @@ app.on("activate", () => {
     if (mainWindow === null) {
         createWindow();
     }
+});
+
+ipcMain.on('item:add', (item) => {
+    //TODO quantitiy and pricing
+    mainWindow.webContents.send('item:add', '1', item, '16', '16');
+    //TODO reset quantity input
 });
