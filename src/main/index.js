@@ -37,8 +37,10 @@ app.on("activate", () => {
     }
 });
 
-ipcMain.on('item:add', (item) => {
+ipcMain.on('item:add', (e, item) => {
     //TODO quantitiy and pricing
+    console.log(e);
+    console.log(item);
     mainWindow.webContents.send('item:add', '1', item, '16', '16');
     //TODO reset quantity input
 });

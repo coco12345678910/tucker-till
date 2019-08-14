@@ -42,7 +42,7 @@ const App: React.FC = () => {
                                     <th className="num">Item Total</th> 
                                 </tr>
                             </thead>
-                            <tbody id="#currentSale" style={{height: '600px'}}>
+                            <tbody id="#currentOrder" style={{height: '600px'}}>
 
                             </tbody>                          
                             <tfoot>
