@@ -43,7 +43,7 @@ const App: React.FC = () => {
                                 </tr>
                             </thead>
                             <tbody id="#currentOrder" style={{height: '600px'}}>
-
+                                {}
                             </tbody>                          
                             <tfoot>
                                 <tr>

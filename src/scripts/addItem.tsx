@@ -32,9 +32,9 @@ const ItemElement : React.FC<IProps> = (props) => {
     );
 }
 
-ipcRenderer.on('item:add', (e: any, quantity: number, item: string, priceUnit: number, priceTotal: number) => {
-    ReactDOM.render(
-        <ItemElement quantity={quantity} item={item} priceUnit={priceUnit} priceTotal={priceTotal}/>,
-        document.getElementById("#currentOrder")
-    );
+ipcRenderer.on('item:add', (e: any, quantity: number, item: string, priceUnit: number) => {
+    //ReactDOM.render(
+    //   <ItemElement quantity={quantity} item={item} priceUnit={priceUnit} priceTotal={quantity * priceUnit}/>,
+    //    document.getElementById("#currentOrder")
+    //);
 })

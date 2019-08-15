@@ -1,6 +1,6 @@
 const electron = require("electron");
 const app = electron.app;
-const { BrowserWindow, ipcMain } = electron;
+const { BrowserWindow, ipcMain, dialog } = electron;
 const path = require("path");
 const isDev = require("electron-is-dev");
 
@@ -39,8 +39,6 @@ app.on("activate", () => {
 
 ipcMain.on('item:add', (e, item) => {
     //TODO quantitiy and pricing
-    console.log(e);
-    console.log(item);
-    mainWindow.webContents.send('item:add', '1', item, '16', '16');
+    mainWindow.webContents.send('item:add', 2, item, 16);
     //TODO reset quantity input
 });
